@@ -1,4 +1,4 @@
-# Prosit-1-UE-2
+﻿# Prosit-1-UE-2
 Intégration et maintenance d’un serveur
 
 Prosit 1 UE 2 – Intégration et maintenance d&#39;un serveur
@@ -62,10 +62,33 @@ Etudes
 
 - Installation d&#39;un serveur (Qu&#39;est-ce qu&#39;on va mettre dessus ? Dimensionnement)
 - Paramétrer un serveur (Infrastructure réseau, utilisateurs, accès distants, fréquences des MAJs, pare-feu, dimensionnement du serveur)
+
+Voici la listes des paramétrages a effectuer lors du paramétrage:
+	- Mise en place du raid
+	- Création des utilisateurs (adduser)
+	- Gestion des droits (chown - chgrp - chmod)
+	- Configuration de l'addresse ip (nano /etc/network/interfaces)
+	- Définir le nom d'utilisateur de la machine (nano /etc/hosts - nano /etc/hostname)
+	- Mise en place de la gestion à distance (apt-get install openssh-server   -  nano /etc/ssh/ssd_config)
+	- Mise en place du pare-feu (iptables)
+	- Mise en place des sauvegardes (crontab -e)
+	- Plannification des mises à jour 
+
 - Plan de reprise d&#39;activités
 - Sauvegardes (quoi, ou, comment, quand …)
 - Raid
+	- Raid 0
+	- Raid 1
+	- Raid 5
+	- Raid 6
+	- Raid 10
+	- Raid 50
+	- Raid 60
+
 - Solution de monitoring
+	- Monit
+
+Une solution de monitoring permet de contrôler à distance l'état de certains services et de certains hardware comme les disques durs.
 
 Réalisations
 
