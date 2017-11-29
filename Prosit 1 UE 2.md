@@ -1,4 +1,4 @@
-# Prosit-1-UE-2
+﻿# Prosit-1-UE-2
 Intégration et maintenance d’un serveur
 
 Prosit 1 UE 2 – Intégration et maintenance d&#39;un serveur
@@ -61,11 +61,50 @@ Prosit 1 UE 2 – Intégration et maintenance d&#39;un serveur
 Etudes
 
 - Installation d&#39;un serveur (Qu&#39;est-ce qu&#39;on va mettre dessus ? Dimensionnement)
+ - Les applications (Serveur LAMP (Linux, Apache, MySQL, PHP))
+ - Le type de Raid
+ - Utilisateurs (Nombre, Droits)
+ - Stockage (Sauvegarde)
+ - Bande-Passante
+ - Redondance
+
 - Paramétrer un serveur (Infrastructure réseau, utilisateurs, accès distants, fréquences des MAJs, pare-feu, dimensionnement du serveur)
+ - Instal raid
+ - Creation Utilisateurs (adduser)
+ - Gestion des droits (chgrp (changer groupe), chown (changer owner), chmod (changer les paramètres du fichier))
+ - Config ip (nano /etc/network/interfaces, en static ou dhcp) + relancer le service
+ - Nom machine (nano /etc/hosts
+ - Ssh : apt-get install openssh-server
+  - nano /etc/ssh/sshd_config
+  - Ne pas autoriser root
+  - Autoriser seulement certain users
+  - Forger des clés ????
+ - Crontab (crontab –e)
+ - IPTab
+ - FireWall (habitude a prendre, on ferme tous les ports et on ouvre ceux qu'on veut/connait)
+  - Mise à jour = Nano /etc/apt/source.list
+  - On autorise que les dossiers officiels
+
 - Plan de reprise d&#39;activités
+ - procédure appliquée de manière préventive visant en cas 
+  - RTO = Return Time Objectif (Temps durant lequel un service peut rester indisponible)
+  - RPO = Recovery Point Objective ("temps" de données qui peuvent-être perdues lors d'un incident)
+
 - Sauvegardes (quoi, ou, comment, quand …)
+ - Sauvegarde complète
+ - Sauvegarde Incrémentielle (sauvegarde en regardant depuis la dernière sauvegarde si ça a changé)
+ - Sauvegarde Différentielle (comme l'incrémentielle mais elle cumule tous les changements depuis la dernière sauvegarde **complète**)
+
 - Raid
+![Types de Raid](http://www.tonypickett.com/wp-content/uploads/2013/12/allraid.png)
+
 - Solution de monitoring
+ - Monit
+ - Surveille les deamon (processus en cours de fonctionnement) et vérifie qu'ils fonctionnement correctement et si non, réagit en fonction
+ - Permet de vérifier l'état des services et /ou disques / processeurs
+ - Top
+ - Htop (intéractif)
+
 
 Réalisations
 
