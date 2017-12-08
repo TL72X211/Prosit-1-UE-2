@@ -1,5 +1,5 @@
 
-**« Server»**
+## **« Server»**
 CER UE2.1 : Server (29/11/2017)
 
 **Mots Clés**
@@ -29,9 +29,10 @@ CER UE2.1 : Server (29/11/2017)
 -	Comment installer un serveur Linux ?
  Bref,
 -	Comment rendre une infra fonctionnelle et éviter les pannes en établissant un plan ?
-**Généralisation**
 
+**Généralisation**
 -	MCO (Maintient en Conditions Opérationnels)
+
 **Hypothèses**
 -	Il existe un monitor de perf sur linux qui s’appel : System Monitor.
 -	On doit config l’interface réseau.
@@ -47,6 +48,7 @@ CER UE2.1 : Server (29/11/2017)
 -	Configurer un accès distant.
 
 **Plan d’action**
+
 Etudes 
 -	Installation d’un serveur (Qu’est-ce qu’on va mettre dessus ? Dimensionnement)
 -	Paramétrer un serveur (Infrastructure réseau, utilisateurs, accès distants, fréquences des MAJs, pare-feu, dimensionnement du serveur)
@@ -62,48 +64,12 @@ Réalisations
 -	Installer solution de monitoring
 
 
-
-
-
-
-
-
-
-**Table des matières**
-CER UE2.1 : Server (29/11/2017)	1
-1 – Choix du type de serveur :	4
-2 – Mise en place du serveur LAMP :	6
-3 – Paramétrage divers :	8
-4 – Mise en place du SSH :	11
-5 – Fréquences des MAJ et Pare-Feu :	11
-6 – RSyn – La sauvegarde synchronisé :	12
-7 – Le monitoring :	13
-8 – Le plan de reprise d’activité :	13
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 **1 – Choix du type de serveur :**
+
 Prérequis matériel : 
+
  ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/1.png)
+ 
 -	Tout processeurs acceptés
 -	Pentium 4 -> 4GHz au minimum
 -	2 Go Mini (Sans bureau)
@@ -113,15 +79,8 @@ Les fichiers de dpkg contiennent des informations sur tous les paquets
 {…}
 
 
-
-
-
-
-
-
-
-
 **2 : Déterminer quel serveur on a besoin :**
+
 ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/2.png)
 
 On retrouve ensuite un côté applicatif, selon ce que l’on veut en faire :
@@ -146,11 +105,14 @@ On retrouve ensuite un côté applicatif, selon ce que l’on veut en faire :
 https://doc.ubuntu-fr.org/serveur
 
 Et enfin, on peut administrer le tout grâce à des outils de gestion :
+
 ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/3.png)
 
 **3 : Application à notre situation :**
+
 Nous allons mettre en place un serveur Web LAMP :
 C’est un serveur web qui fournit des sites internet, des applications, ou d’autres services accessibles depuis un navigateur web. C’est la configuration la plus courante pour un serveur Web.
+
  ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/4.png)
 
 **2 – Mise en place du serveur LAMP :**
@@ -172,12 +134,17 @@ Ce sont des lignes de commande à rentrer, et des fichiers à modifier.
 
 RAID 1 : C’est quoi ? 
 Le RAID est un ensemble de techniques de virtualisation du stockage permettant de répartir des données sur plusieurs disques durs afin d'améliorer soit les performances, soit la sécurité ou la tolérance aux pannes de l'ensemble du ou des systèmes.
+
   ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/5.png)
+  
 Le raid est très fortement conseillé à mettre en place lors de la création du serveur. On branche les deux disques durs, qui seront détectés lors de l’installation de LINUX. Il faudra alors lors de la configuration, en déclarer un comme un RAID.
+
   ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/6.png)
+  
 Photo de la mise en place du RAID 1 lors de l’installation de Linux.
 
 **3 – Paramétrage divers :**
+
 Modification des mots de passes : 
 https://www.it-connect.fr/la-commande-passwd-sous-linux%EF%BB%BF/
   ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/7.png)
@@ -224,11 +191,15 @@ Planifier une tâche journalière :
 crontab -e
 
 **On modifie tout à la fin du fichier, et on définit une heure et notre commande**
+
   ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/9.png)
+  
 Il est conseillé de redémarrer le service -> service cron restart	
 Ça permet à cron de mettre à jour la connaissance des instructions dans son fichier.
 On peut par exemple faire des CP à des moments définit, comme les logs, pour les centraliser.
+
 **4 – Mise en place du SSH :**
+
 https://doc.ubuntu-fr.org/ssh
 
 Connaître la version :
@@ -250,7 +221,9 @@ Nb : Port SSH = 22
 De nombreuses autres configurations existent.
 
 On peut ensuite regarder son @IP avec Ipconfig, et s’y connecter depuis Putty ou Terraform.
+
 **5 – Fréquences des MAJ et Pare-Feu :**
+
 Fréquence de MAJ -> Toutes les semaines
 Vérifier + MAJ
 sudo do-release-upgrade --check-dist-upgrade-only
@@ -263,13 +236,16 @@ On a aussi IPCop, Shorewall, UFW, Vuurmuur, pfSense, IPFire, SmoothWall,EndianCo
 
 
 **6 – RSyn – La sauvegarde synchronisé :**
+
 https://doc.ubuntu-fr.org/rsync
 rsync (pour remote synchronization ou synchronisation à distance), est un logiciel 1) de synchronisation de fichiers. Il est fréquemment utilisé pour mettre en place des systèmes de sauvegarde distante.
 rsync travaille de manière unidirectionnelle c'est-à-dire qu'il synchronise, copie ou actualise les données d'une source (locale ou distante) vers une destination (locale ou distante) en ne transférant que les octets des fichiers qui ont été modifiés. (Bien que l’on puisse changer).
  
 Lors de la construction, on peut prévoir un RAID :
 http://www.jmax-hardware.com/forum/index.php?topic=3360.0
+
 **7 – Le monitoring :**
+
 https://doc.ubuntu-fr.org/monit
 monit est un outil de surveillance de services locaux. Il vérifie la disponibilité des *daemons* présents sur le serveur qui l'accueille. En cas de panne, monit peut alerter l'administrateur du système. 
 La particularité de monit par rapport à d'autres solutions similaires (Zabbix, Nagios) réside dans le fait qu'il est capable de déclencher des actions pour tenter de rétablir un service interrompu, comme par exemple relancer un serveur Apache si il ne répond plus ou vider la file d'attente d'un serveur Postfix en cas d'engorgement. 
@@ -283,7 +259,9 @@ C’est un document qui permet à une entreprise de prévoir par anticipation, l
 On a alors deux notions :
 RTO : ( Return Time on Objection) : Temps maximal acceptable durant lequel une ressource informatique peut se trouver indisponible suite à un sinistre.
 RPO : Perte de données maximale admissible. (Recovery Point Objective). Exprimée en Minutes / Heures, elle résulte de la différence entre la dernière sauvegarde et l’incident.
+
   ![](https://github.com/TL72X211/Prosit-1-UE-2/blob/Emilien/images_prosit/10.png)
+  
 Conseils :
 -	Pensez aux catastrophes
 -	Sensibiliser votre personnel
