@@ -249,7 +249,9 @@ http://www.jmax-hardware.com/forum/index.php?topic=3360.0
 https://doc.ubuntu-fr.org/monit
 monit est un outil de surveillance de services locaux. Il vérifie la disponibilité des *daemons* présents sur le serveur qui l'accueille. En cas de panne, monit peut alerter l'administrateur du système. 
 La particularité de monit par rapport à d'autres solutions similaires (Zabbix, Nagios) réside dans le fait qu'il est capable de déclencher des actions pour tenter de rétablir un service interrompu, comme par exemple relancer un serveur Apache si il ne répond plus ou vider la file d'attente d'un serveur Postfix en cas d'engorgement. 
+
 **8 – Le plan de reprise d’activité :**
+
 PER = plan reprise d’activité
 C’est un document qui permet à une entreprise de prévoir par anticipation, les démarches à entreprendre pour reconstruire et remettre en route un SI en cas de sinistre important du centre informatique.
 3 Questions importantes : 
